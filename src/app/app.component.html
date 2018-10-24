@@ -1,4 +1,30 @@
-<mat-sidenav-container>
-    <mat-sidenav>Start</mat-sidenav>
-    <mat-sidenav-content>Main</mat-sidenav-content>
-  </mat-sidenav-container> 
+<div class="main-container">
+    <mat-toolbar color="primary" class="main-toolbar" [class.main-is-mobile]="mobileQuery.matches">
+
+        <button mat-icon-button (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+
+        <h1 class="main-app-name">{{ title }}:  {{ sidenav.opened }}</h1>
+
+    </mat-toolbar>
+
+
+    <mat-sidenav-container class="main-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+
+        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"  fixedTopGap="56" style="width: 200px">
+
+            <mat-nav-list>
+                <a mat-list-item *ngFor="let menuItem of menu">{{ menuItem.label }}</a>
+            </mat-nav-list>
+
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+
+            <h1>Main Area</h1>
+
+        </mat-sidenav-content>
+        
+    </mat-sidenav-container>
+</div>
