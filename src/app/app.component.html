@@ -1,18 +1,25 @@
 <div class="main-container">
+
     <mat-toolbar color="primary" class="main-toolbar" [class.main-is-mobile]="mobileQuery.matches">
+ 
+        <div fxLayout="row" class="fullwidth" fxLayoutAlign="space-between center">
+            <button mat-icon-button (click)="sidenav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
 
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-        </button>
+            <h1 class="main-app-name">{{ title }}</h1>
 
-        <h1 class="main-app-name">{{ title }}:  {{ sidenav.opened }}</h1>
+            <button mat-icon-button (click)="rightside.toggle()">
+                <mat-icon>apps</mat-icon>
+            </button>
+        </div>
 
     </mat-toolbar>
 
 
     <mat-sidenav-container class="main-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
 
-        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"  fixedTopGap="56" style="width: 200px">
+        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"  fixedTopGap="56">
 
             <mat-nav-list>
                 <a mat-list-item *ngFor="let menuItem of menu">{{ menuItem.label }}</a>
@@ -22,9 +29,14 @@
 
         <mat-sidenav-content>
 
-            <h1>Main Area</h1>
+            <router-outlet></router-outlet>
+            
 
         </mat-sidenav-content>
+
+        <mat-sidenav #rightside position="end" class="right-sidenav-container">
+            <h1>Right side</h1>
+        </mat-sidenav>
         
     </mat-sidenav-container>
 </div>
