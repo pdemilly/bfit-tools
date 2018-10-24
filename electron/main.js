@@ -1,11 +1,14 @@
 // https://github.com/electron/electron-quick-start/blob/master/main.js
 
-const { electron, app, Tray, Menu, BrowserWindow } = require ('electron');
+const { app, Tray, Menu, BrowserWindow, nativeImage } = require ('electron');
 
 const path = require('path');
 const url = require('url');
+// const jetpack = require ('fs-jetpack');
 
-const iconPath = path.join (__dirname, 'icon.png');
+console.log ('starting bfit-tools in: ', __dirname);
+const iconPath = path.join (__dirname, '..', 'assets', 'icon', 'icon.png');
+// console.log('icon path: ', iconPath, jetpack.exists(iconPath));
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -14,7 +17,9 @@ let mainWindow;
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({width: 1200, height: 800, show: true });
-  appIcon = new Tray(iconPath);
+
+  let icon = nativeImage.createFromPath(iconPath);
+  appIcon = new Tray(icon);
 
   console.log ('electron dirname: ', __dirname);
   // and load the index.html of the app.
