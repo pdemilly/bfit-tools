@@ -1,42 +1,34 @@
-<div class="main-container">
+<ion-app>
 
-    <mat-toolbar color="primary" class="main-toolbar" [class.main-is-mobile]="mobileQuery.matches">
- 
-        <div fxLayout="row" class="fullwidth" fxLayoutAlign="space-between center">
-            <button mat-icon-button (click)="sidenav.toggle()">
-                <mat-icon>menu</mat-icon>
-            </button>
+  <ion-split-pane>
 
-            <h1 class="main-app-name">{{ title }}</h1>
+    <ion-menu>
 
-            <button mat-icon-button (click)="rightside.toggle()">
-                <mat-icon>apps</mat-icon>
-            </button>
-        </div>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
 
-    </mat-toolbar>
+      <ion-content>
+        <ion-list>
 
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item [routerDirection]="'root'" [routerLink]="[p.url]">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>
+                {{p.title}}
+              </ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          
+        </ion-list>
+      </ion-content>
 
-    <mat-sidenav-container class="main-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    </ion-menu>
 
-        <mat-sidenav #sidenav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"  fixedTopGap="56">
+    <ion-router-outlet main></ion-router-outlet>
 
-            <mat-nav-list>
-                <a mat-list-item *ngFor="let menuItem of menu">{{ menuItem.label }}</a>
-            </mat-nav-list>
+  </ion-split-pane>
 
-        </mat-sidenav>
-
-        <mat-sidenav-content>
-
-            <router-outlet></router-outlet>
-            
-
-        </mat-sidenav-content>
-
-        <mat-sidenav #rightside position="end" class="right-sidenav-container">
-            <h1>Right side</h1>
-        </mat-sidenav>
-        
-    </mat-sidenav-container>
-</div>
+</ion-app>

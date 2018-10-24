@@ -5,6 +5,13 @@
     "tasks": [
         {
             "type": "npm",
+            "script": "start",
+            "problemMatcher": [
+                "$eslint-compact"
+            ]
+        },
+        {
+            "type": "npm",
             "script": "build",
             "problemMatcher": [
                 "$eslint-compact"
@@ -13,13 +20,6 @@
         {
             "type": "npm",
             "script": "electron",
-            "problemMatcher": [
-                "$eslint-compact"
-            ]
-        },
-        {
-            "type": "npm",
-            "script": "start",
             "problemMatcher": [
                 "$eslint-compact"
             ]

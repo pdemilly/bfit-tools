@@ -11,7 +11,7 @@
  * automatically update themselves. This includes Safari >= 10, Chrome >= 55 (including Opera),
  * Edge >= 13 on the desktop, and iOS 10 and Chrome on mobile.
  *
- * Learn more in https://angular.io/docs/ts/latest/guide/browser-support.html
+ * Learn more in https://angular.io/guide/browser-support
  */
 
 /***************************************************************************************************
@@ -28,15 +28,15 @@
 // import 'core-js/es6/math';
 // import 'core-js/es6/string';
 // import 'core-js/es6/date';
-// import 'core-js/es6/array';
 // import 'core-js/es6/regexp';
 // import 'core-js/es6/map';
 // import 'core-js/es6/weak-map';
 // import 'core-js/es6/set';
 
 /**
- * If the application will be indexed by Google Search, the following is required.
- * Googlebot uses a renderer based on Chrome 41.
+ * If your app need to indexed by Google Search, your app require polyfills 'core-js/es6/array'
+ * Google bot use ES5.
+ * FYI: Googlebot uses a renderer following the similar spec to Chrome 41.
  * https://developers.google.com/search/docs/guides/rendering
  **/
 // import 'core-js/es6/array';

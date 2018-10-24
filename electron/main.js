@@ -16,9 +16,10 @@ function createWindow() {
   mainWindow = new BrowserWindow({width: 1200, height: 800, show: true });
   appIcon = new Tray(iconPath);
 
+  console.log ('electron dirname: ', __dirname);
   // and load the index.html of the app.
   const startUrl = process.env.ELECTRON_START_URL || url.format({
-    pathname: path.join(__dirname, '/../dist/bfit-tools/index.html'),
+    pathname: path.join(__dirname, '/../www/index.html'),
     protocol: 'file:',
     slashes: true
   });

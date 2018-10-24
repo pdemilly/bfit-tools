@@ -1,0 +1,7 @@
+{
+  "name": "bfit-tools",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
