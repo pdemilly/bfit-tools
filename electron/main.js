@@ -16,7 +16,7 @@ let mainWindow;
 
 function createWindow() {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 1200, height: 800, show: true });
+  mainWindow = new BrowserWindow({width: 1200, height: 800, show: false });
 
   let icon = nativeImage.createFromPath(iconPath);
   appIcon = new Tray(icon);
